@@ -10,11 +10,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'render a detailed product page 'do
-    get products_path(products(:ps4))
+    get product_path(products(:ps4))
 
     assert_response :success
     assert_select '.title', 'PS4 Fat'
-    assert_select '.descripcion', 
+    assert_select '.description', 'PS4 en buen estado'
+    assert_select '.price', '150'
   end
 end
 
